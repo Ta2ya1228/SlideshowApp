@@ -81,6 +81,8 @@
                     <connections>
                         <outlet property="auto_Button" destination="lDH-Ud-Gmj" id="eyG-0d-vin"/>
                         <outlet property="imageView" destination="Z0n-LE-S3j" id="LJR-uQ-axO"/>
+                        <outlet property="modoru" destination="sGK-pa-fxx" id="0uU-oN-ssJ"/>
+                        <outlet property="susumu" destination="3xm-jK-Waz" id="naY-iT-4i8"/>
                         <segue destination="Q38-ic-csX" kind="show" identifier="result" id="ZZc-hG-3fy"/>
                     </connections>
                 </viewController>

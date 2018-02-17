@@ -14,8 +14,6 @@ class ViewController: UIViewController {
    
 
 
-    
-    //なんでこれ関数にしたん？
     func displayImage(){
       
         let imageNameArray = ["swift_photo.png",
@@ -62,11 +60,16 @@ override func didReceiveMemoryWarning() {
     @IBAction func auto_Button(_ sender: Any) {
         if timer == nil {timer = Timer.scheduledTimer(timeInterval:2.0, target:self, selector: #selector(saisei), userInfo:nil, repeats:true )
              auto_Button.setTitle("停止", for: .normal)
+            
+            susumu.isEnabled = false
+            modoru.isEnabled = false
         }
         else{
             timer.invalidate()
             timer = nil
              auto_Button.setTitle("再生", for: .normal)
+            susumu.isEnabled = true
+            modoru.isEnabled = true
         }
         
     
@@ -74,19 +77,19 @@ override func didReceiveMemoryWarning() {
     
     @IBAction func modoru(_ sender: Any) {
    
-        if timer == nil {displayImageNo -= 1
+        displayImageNo -= 1
         displayImage()
 
-    }
-}
+        }
+
 
 
     @IBAction func susumu(_ sender: Any) {
         
-        if timer == nil{displayImageNo += 1
+            displayImageNo += 1
             displayImage()
         }
-    }
+
     
     
 //画面遷移
@@ -94,6 +97,10 @@ override func didReceiveMemoryWarning() {
         let zoomVC = segue.destination as! ZoomViewController
         
         zoomVC.displayImageNo2 = displayImageNo
+        if timer != nil{
+            timer.invalidate()
+            timer = nil
+        }
     }
     
     @IBAction func tapGesture(_ sender: Any) {
@@ -106,6 +113,12 @@ override func didReceiveMemoryWarning() {
 
 
     @IBAction func unwind(_ segue: UIStoryboardSegue){
+        timer = Timer.scheduledTimer(timeInterval:2.0, target:self, selector: #selector(saisei), userInfo:nil, repeats:true )
         
     }
+    
+    @IBOutlet weak var modoru: UIButton!
+    @IBOutlet weak var susumu: UIButton!
+    
+    
 }
