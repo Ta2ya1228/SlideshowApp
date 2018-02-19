@@ -113,8 +113,7 @@ override func didReceiveMemoryWarning() {
 
 
     @IBAction func unwind(_ segue: UIStoryboardSegue){
-        timer = Timer.scheduledTimer(timeInterval:2.0, target:self, selector: #selector(saisei), userInfo:nil, repeats:true )
-        
+        auto_Button.setTitle("再生", for: .normal)
     }
     
     @IBOutlet weak var modoru: UIButton!
