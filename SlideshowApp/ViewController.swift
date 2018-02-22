@@ -114,6 +114,9 @@ override func didReceiveMemoryWarning() {
 
     @IBAction func unwind(_ segue: UIStoryboardSegue){
         auto_Button.setTitle("再生", for: .normal)
+        susumu.isEnabled = true
+        modoru.isEnabled = true
+        
     }
     
     @IBOutlet weak var modoru: UIButton!
